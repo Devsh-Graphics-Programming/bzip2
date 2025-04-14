@@ -1328,7 +1328,7 @@ int BZ_API(BZ2_bzBuffToBuffDecompress)
 
    ret = BZ2_bzDecompress ( &strm );
    if (ret == BZ_OK) goto output_overflow_or_eof;
-   if (ret != BZ_STREAM_END) goto errhandler;
+   if (ret != BZ_STREAM_END) goto errhandler2;
 
    /* normal termination */
    *destLen -= strm.avail_out;
@@ -1344,7 +1344,7 @@ int BZ_API(BZ2_bzBuffToBuffDecompress)
       return BZ_OUTBUFF_FULL;
    };
 
-   errhandler:
+   errhandler2:
    BZ2_bzDecompressEnd ( &strm );
    return ret;
 }
