@@ -447,6 +447,8 @@ endif()
 
 # The Summary Info.
 string(TOUPPER "${CMAKE_BUILD_TYPE}" _build_type)
+
+if(ENABLE_SUMMARY)
 message(STATUS "Summary of build options:
 
     Package version: ${VERSION}
@@ -466,6 +468,7 @@ message(STATUS "Summary of build options:
         Applications:   ${ENABLE_APP}
         Examples:       ${ENABLE_EXAMPLES}
 ")
+endif()
 if(ENABLE_LIB_ONLY_DISABLED_OTHERS)
     message("Only the library will be built. To build other components "
             "(such as applications and examples), set ENABLE_LIB_ONLY=OFF.")
